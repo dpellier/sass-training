@@ -6,6 +6,7 @@
 
         <link href="css/normalize.css" rel="stylesheet" />
         <link href="css/sass-training.css" rel="stylesheet" />
+        <link href="css/monokai_sublime.css" rel="stylesheet" />
     </head>
 
     <body class="impress-not-supported">
@@ -15,14 +16,346 @@
         </div>
 
         <div id="impress">
-            <div class="step slide" data-x="-1000" data-y="-1500">
-                <q>SASS and why</q>
+            <div class="step slide" data-x="-3000" data-y="-1500">
+                <q>Syntactically Awesome StyleSheets</q>
+
+                <div class="center-img">
+                    <img src="images/brace-yourself.jpg" />
+                </div>
             </div>
 
+
+
+
+            <div class="step slide" data-x="-2000" data-y="-1500">
+                <blockquote class="quote">
+                    Sass is an extension of CSS3, adding nested rules, variables, mixins, selector inheritance, and more. It’s translated to well-formatted, standard CSS using the command line tool or a web-framework plugin.
+                    <br />
+                    Sass has two syntaxes. The new main syntax (as of Sass 3) is known as “SCSS” (for “Sassy CSS”), and is a superset of CSS3’s syntax. This means that every valid CSS3 stylesheet is valid SCSS as well. SCSS files use the extension .scss.
+                    <br />
+                    The second, older syntax is known as the indented syntax (or just “Sass”). Inspired by Haml’s terseness, it’s intended for people who prefer conciseness over similarity to CSS. Instead of brackets and semicolons, it uses the indentation of lines to specify blocks. Although no longer the primary syntax, the indented syntax will continue to be supported. Files in the indented syntax use the extension .sass.
+                </blockquote>
+            </div>
+
+
+
+
+            <div class="step slide" data-x="-1000" data-y="-1500">
+                <p class="slide-title">Nesting</p>
+
+<pre><code class="css">.article {
+    background-color: #fff;
+}
+
+.article .title {
+    font-size: 1.2rem;
+}
+
+.article .content {
+    margin: 10px;
+}
+
+.article .content > a {
+    text-decoration: none;
+}</code></pre>
+
+                <div class="arrow">=></div>
+
+<pre><code class="css">.article {
+    background-color: #fff;
+
+    .title {
+        font-size: 1.2rem;
+    }
+
+    .content {
+        margin: 10px;
+
+        > a {
+            text-decoration: none;
+        }
+    }
+}
+</code></pre>
+            </div>
+
+
+
+
             <div class="step slide" data-x="0" data-y="-1500">
-                <q>Test</q>
+                <p class="slide-title">Parent selector</p>
+
+<pre><code class="css">.button {
+    background-color: green;
+    color: gray;
+
+    &:hover {
+        background-color: red;
+    }
+
+    & + & {
+        margin-left: 10px;
+    }
+
+    &--active {
+        color: white;
+    }
+}</code></pre>
+            </div>
+
+
+
+
+            <div class="step slide" data-x="1000" data-y="-1500">
+                <p class="slide-title">Variables</p>
+<pre><code class="css">.button-validation {
+    background-color: #0aff21;
+}
+
+.message-validation {
+    color: #0aff21;
+}
+</code></pre>
+
+                <div class="arrow">=></div>
+
+<pre><code class="css">$green: #0aff21;
+
+.button-validation {
+    background-color: $green;
+}
+
+.message-validation {
+    color: $green;
+}
+</code></pre>
+            </div>
+
+
+
+
+            <div class="step slide" data-x="2000" data-y="-1500">
+                <p class="slide-title">Operators</p>
+
+                <p class="operators">
+                    + - * / % == !=
+                </p>
+                <br /><br />
+
+<pre><code class="css">.list-item:last-child {
+    margin-left: (100px / 5);
+}
+</code></pre>
+            </div>
+
+
+
+
+            <div class="step slide" data-x="1500" data-y="0">
+                <p class="slide-title">Variables && Operators</p>
+
+<pre><code class="css">$tag-size: 10px;
+
+.tag-a { width: $tag-size; }
+.tag-b { width: $tag-size * 2; }
+.tag-c { width: $tag-size * 3; }
+.tag-d { width: $tag-size * 4; }
+.tag-e { width: $tag-size * 5; }
+.tag-f { width: $tag-size * 6; }
+.tag-g { width: $tag-size * 7; }
+</code></pre>
+                <img class="dpe" src="images/dpe.gif" />
+            </div>
+
+
+
+
+            <div class="step slide" data-x="1500" data-y="1500">
+                <p class="slide-title">Variables && Operators (2)</p>
+
+<pre><code class="css">.graph {
+    $graph--height: 1rem;
+    $graph-bar--offset: .125rem;
+    $graph-bar--height: $graph--height + ($graph-bar--offset * 2);
+
+    height: $graph--height; ....
+
+    .negative {
+        top: -$graph-bar--offset;
+        height: $graph-bar--height; ....
+    }
+    .positive {
+        top: -graph-bar--offset;
+        height: $graph-bar--height; ....
+    }
+}</code></pre>
+                <img class="graph" src="images/graph.png" />
+            </div>
+
+
+
+
+            <div class="step slide" data-x="2500" data-y="1500">
+                <p class="slide-title">Mixins</p>
+
+<pre><code class="css">@mixin simple-button {
+    min-width: 40px;
+    border-radius: 5px;
+    text-align: center;
+    text-transform: uppercase; ....
+}
+
+.button-validate {
+    @include simple-button;
+    background-color: $green;
+}
+.button-cancel {
+    @include simple-button;
+    background-color: $grey;
+}
+</code></pre>
+
+                <div class="buttons">
+                    <button class="button-validate">Valider</button>
+                    <button class="button-cancel">Annuler</button>
+                </div>
+            </div>
+
+
+
+
+            <div class="step slide" data-x="3500" data-y="1500">
+                <p class="slide-title">Extends</p>
+
+<pre><code class="css">.error {
+    border: 1px #f00;
+    background-color: #fdd;
+}
+.seriousError {
+    border-width: 3px;
+}
+</code></pre>
+                <div class="arrow">=></div>
+
+<pre><code class="css">.error {
+    border: 1px #f00;
+    background-color: #fdd;
+}
+
+.seriousError {
+    @extend .error;
+    border-width: 3px;
+}
+</code></pre>
+            </div>
+
+
+
+
+            <div class="step slide" data-x="3000" data-y="3000">
+                <p class="slide-title">Placeholder</p>
+
+<pre><code class="css">@mixin fill($position:absolute, $top:0, $right:0, $bottom:0, $left:0) {
+    position: $position;
+    top: $top;
+    bottom: $bottom;
+    left: $left;
+    right: $right;
+}
+
+%fill {
+    @include fill;
+}
+
+.fullContainer {
+    @extend %fill;
+}
+</code></pre>
+                </div>
+
+
+
+
+            <div class="step slide" data-x="4000" data-y="3000">
+                <p class="slide-title">Partials</p>
+
+                <div class="center-img">
+                    <img src="images/partials.png" />
+                    <img class="import-img" src="images/import.png" />
+                </div>
+            </div>
+
+
+
+
+            <div class="step slide" data-x="5000" data-y="3000">
+                <p class="slide-title">Instructions</p>
+
+                <p class="operators">
+                    @if @for @while ....
+                </p>
+                <br /><br /><br />
+
+                <div class="center-img">
+                    <img src="images/instructions.png" />
+                </div>
+            </div>
+
+
+
+
+            <div class="step slide" data-x="10000" data-y="4000" data-rotate-y="180">
+                <p class="slide-title">So what will change for me ?</p>
+                <br /><br />
+
+                <p>
+                    First, install Ruby -> see packages manager : <a href="https://www.ruby-lang.org/en/documentation/installation/">on ruby website</a>
+                    <br /><br />Then install Sass :
+                </p>
+
+<pre><code class="bash">gem install sass scss-lint
+</code></pre>
+                <br /><br />
+                <p>
+                    Finally follow conventions !
+                </p>
+            </div>
+
+
+
+
+             <div class="step slide" data-x="9000" data-y="4000" data-rotate-y="180">
+                <p class="slide-title">Scss lint</p>
+                <br /><br />
+
+                <div class="center-img">
+                    <img src="images/property-order.jpg" />
+                </div>
+            </div>
+
+
+
+
+            <div class="step slide" data-x="8000" data-y="4000" data-rotate-y="180">
+                <p class="slide-title">Conclusion</p>
+
+<pre><code class="css">.Use {
+    &__less-code {
+        DRY: absolute
+    }
+
+    &__more {
+        &__structured-code {
+            KISS: 100%;
+        }
+    }
+}</code></pre>
             </div>
         </div>
+
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
 
         <script src="js/impress.js"></script>
         <script>impress().init();</script>
