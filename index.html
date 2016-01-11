@@ -377,6 +377,173 @@
 
 
 
+            <div class="step slide" data-x="1000" data-y="5000">
+                <q>Blocks Elements Modifiers</q>
+
+                <div class="center-img">
+                    <img height="400px" src="images/bem.gif" />
+                </div>
+            </div>
+
+
+
+
+            <div class="step slide" data-x="2000" data-y="5000">
+                <p class="slide-title">Block</p>
+
+                <blockquote class="quote">
+                    A logically and functionally independent page component, the equivalent of a component in Web Components. A block encapsulates behavior (JavaScript), templates, styles (CSS), and other implementation technologies. Blocks being independent allows for their re-use, as well as facilitating the project development and support process.
+                </blockquote>
+
+                <div class="center-img">
+                    <img width="600px" src="images/bem-block.png" />
+                </div>
+            </div>
+
+
+
+            <div class="step slide" data-x="2000" data-y="5000" data-rotate-x="180">
+<pre><code class="css">.menu {
+
+}
+
+.auth {
+
+}
+
+.head {
+
+}</code></pre>
+
+                <div class="arrow"></div>
+
+<pre><code class="css">.data-management {
+
+}
+
+.data-management-locations {
+
+}</code></pre>
+            </div>
+
+
+
+
+            <div class="step slide" data-x="3000" data-y="5000">
+                <p class="slide-title">Element</p>
+
+                <blockquote class="quote">
+                    A constituent part of a block that can't be used outside of it.
+                </blockquote>
+
+                <div class="center-img">
+                    <img width="600px" src="images/bem-element.png" />
+                </div>
+            </div>
+
+
+
+
+            <div class="step slide" data-x="3000" data-y="5000" data-rotate-x="180">
+<pre><code class="css">.menu {
+    &__tab {
+
+    }
+}
+
+.auth {
+    &__login {
+    }
+}
+
+.head {
+    &__logo {
+
+    }
+}</code></pre>
+
+                <div class="arrow"></div>
+
+<pre><code class="css">.data-management {
+    &__dashboards {
+        &__location-chart {
+
+        }
+    }
+}
+
+.data-management-locations {
+    &__search {
+
+    }
+
+    &__filters {
+
+    }
+}</code></pre>
+            </div>
+
+
+
+
+            <div class="step slide" data-x="4000" data-y="5000">
+                <p class="slide-title">Modifier</p>
+
+                <blockquote class="quote">
+                    A BEM entity that defines the appearance and behavior of a block or an element.
+                    <br />
+                    Modifiers are similar in essence to HTML attributes. The same block looks different due to the use of a modifier.
+                </blockquote>
+
+                <div class="center-img">
+                    <img width="600px" src="images/bem-modifier.png" />
+                </div>
+            </div>
+
+
+
+            <div class="step slide" data-x="4000" data-y="5000" data-rotate-x="180">
+<pre><code class="css">.menu {
+    &__tab {
+        &- -active {}
+    }
+}
+
+.auth {
+    &__login {
+        &- -incorrect {}
+    }
+}
+
+.head {
+    &__logo {
+        &- -hidden {}
+    }
+}</code></pre>
+
+                <div class="arrow"></div>
+
+<pre><code class="css">.data-management {
+    &__dashboards {
+        &__location-chart {
+            &- -hidden {}
+        }
+    }
+}
+
+.data-management-locations {
+    &__search {
+        &- -incorrect {}
+    }
+
+    &__filters {
+        &- -inactive {}
+    }
+}</code></pre>
+            </div>
+
+
+
             <div class="step slide center-img" data-x="8000" data-y="10000" data-z="-100" data-rotate-x="140" data-rotate-y="10" data-scale="2">
                 <img src="images/bonus.jpg" />
             </div>
